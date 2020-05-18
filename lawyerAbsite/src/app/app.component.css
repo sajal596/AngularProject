@@ -1,0 +1,78 @@
+.container.search {
+    background-color: #474d649c;
+    ;
+    padding: 30px;
+}
+
+.headerTitle {
+    color: #0086bb;
+    ;
+}
+
+.container {
+    min-width: 254px;
+}
+
+.btn-secondary {
+    color: #4b4949;
+    background-color: #fff;
+    border-color: #f5f7f9;
+    padding: 15px;
+}
+
+.btn-outline-secondary {
+    color: #444343;
+    border-color: #f9f9f9;
+}
+
+input {
+    padding: 15px;
+}
+
+#location {
+    height: 15%;
+}
+
+.col-md-3 {
+    margin-bottom: 10px;
+}
+
+.fa.pull-right {
+    color: #0069d9;
+}
+
+.fa.fa-search.pull-right.btn {
+    color: #ffffff;
+}
+
+.py-2.container {
+    padding: 30px;
+}
+
+.card-body.header {
+    background-image: url("../assets/bg-image/background3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.textWhite {
+    color: wheat;
+}
+
+.bg-dark {
+    background-color: #f7f7f7 !important;
+}
+
+.text-white {
+    color: #0086bb !important;
+}
+
+marquee {
+    color: #0086bb !important;
+    font-size: medium;
+    font-style: italic;
+}
+
+.browser-default.w-100.rounded {
+    padding: 15px;
+}

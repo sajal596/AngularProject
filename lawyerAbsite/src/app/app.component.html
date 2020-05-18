@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+            <img src="../assets/img/logo.png" style="width: 30px; height: 30px;"> <a class="headerTitle" [routerLink]="['/']"> SoftwareBD</a>
+        </div>
+        <div class="card-body header">
+            <h5 class="card-title textWhite">Find a solicitor</h5>
+            <p class="card-text textWhite">The official database of 1,200 legal professionals.</p>
+
+            <div class="container search">
+                <div class="row">
+                    <div class="col-md-3">
+                        <select class="browser-default w-100  rounded" [(ngModel)]="selectedCategory">
+                            <option  value="0"><b>All issues</b></option>
+                            <option class="dropdown-item" value="1">Action</option>
+                          </select>
+
+                    </div>
+                    <div class="col-md-9 w-100">
+                        <div class="input-group mb-3">
+                            <input type="text" id="location" class="form-control w-90 border-0 rounded" placeholder="Postcode, town, city or country" aria-label="Recipient's username" [(ngModel)]="searchValue" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary textWhite" type="button" (click)="searching()"><i class="fa fa-search pull-right btn"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer text-muted">
+            <marquee behavior="scroll" direction="left"> We are complement of real information.</marquee>
+        </div>
+    </div>
+</div>
+
+
+
+<!--  -->
+
+<div class="container">
+    <hr/>
+    <br/>
+    <router-outlet></router-outlet>
+</div>
+<footer class="py-2 bg-dark container">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; SoftwareBD 2020</p>
+    </div>
+
+</footer>

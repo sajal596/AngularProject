@@ -1,0 +1,70 @@
+<ng-template #rt let-r="result" let-t="term">
+    <ngb-highlight [result]="r.sku " [term]="t"></ngb-highlight>|
+    <ngb-highlight [result]="r.name " [term]="t"></ngb-highlight>
+
+</ng-template>
+
+<label for="typeahead-template">Search for a state:</label>
+<input id="typeahead-template" type="text" class="form-control" (keyup)="method()" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="formatter" />
+<hr>
+
+<!--  -->
+<div class="row">
+    <div class="col-md-6 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">About Find a Solicitor <i class="fa fa-gavel pull-right"></i></h2>
+                <p class="card-text text-justify">Run by the Law Society, Find a Solicitor is a free service for anyone looking for information about organisations or people providing legal services in England and Wales that are regulated by the Solicitors Regulation Authority (SRA).
+                    Find a Solicitor takes data held by the SRA, which we adapt and add additional information to, and present through an easy-to-use search. While we try to ensure the accuracy of the information, the Law Society cannot accept any liability
+                    arising from your reliance upon it, or from the inclusion in it or omission from it of any data whatsoever.</p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary btn-sm">More Info</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-md-4 -->
+    <div class="col-md-6 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Using Find a Solicitor <i class="fa fa-search pull-right"></i></h2>
+                <p class="card-text text-justify">The Law Society does not provide legal advice. Please read the Law Society guides to common legal issues for information about getting advice from a solicitor. Use 'quick search' to find the nearest legal adviser who can help you with
+                    your legal issue. Just choose a legal issue from the list and enter your location (postcode, town or city). If you need more help using this website, please look at our online help section, complete our enquiry form or call 020 7320
+                    5650 (monday to friday from 09:00 to 17:00 charged at local call rates).</p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary btn-sm">More Info</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
+<div class="row">
+    <div class="col-md-6 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Law Society member support <i class="fa fa-phone pull-right"></i></h2>
+                <p class="card-text text-justify">Run by the Law Society, Find a Solicitor is a free service for anyone looking for information about organisations or people providing legal services in England and Wales that are regulated by the Solicitors Regulation Authority (SRA).
+                    Find a Solicitor takes data held by the SRA, which we adapt and add additional information to, and present through an easy-to-use search. While we try to ensure the accuracy of the information, the Law Society cannot accept any liability
+                    arising from your reliance upon it, or from the inclusion in it or omission from it of any data whatsoever.</p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary btn-sm">More Info</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-md-4 -->
+    <div class="col-md-6 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Using Find a Solicitor <i class="fa fa-check pull-right"></i></h2>
+                <p class="card-text text-justify">The Law Society does not provide legal advice. Please read the Law Society guides to common legal issues for information about getting advice from a solicitor. Use 'quick search' to find the nearest legal adviser who can help you with
+                    your legal issue. Just choose a legal issue from the list and enter your location (postcode, town or city). If you need more help using this website, please look at our online help section, complete our enquiry form or call 020 7320
+                    5650 (monday to friday from 09:00 to 17:00 charged at local call rates).</p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary btn-sm">More Info</a>
+            </div>
+        </div>
+    </div>
+</div>
