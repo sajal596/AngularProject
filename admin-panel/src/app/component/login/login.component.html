@@ -1,0 +1,60 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-85 p-b-20">
+
+            <form class="login100-form validate-form" (ngSubmit)="isLogin(f.value)" #f="ngForm">
+                <span class="login100-form-title p-b-70">
+                    ADMIN PANEL
+                </span>
+                <span class="login100-form-avatar">
+                    <img src="assets/img/user.JPG" alt="USER">
+                </span>
+
+                <div class="wrap-input100 validate-input m-t-85 m-b-35 form-group" data-validate="Enter username">
+                    <input class="input100 form-control" type="email" placeholder="Email Address" id="email" name="email" ngModel #email="ngModel" required>
+
+                    <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                        Email Address Required!
+                    </div>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-50 form-group" data-validate="Enter password">
+                    <input class="input100 form-control" type="password" placeholder="Password" id="password" name="password" ngModel #password="ngModel" required>
+
+                    <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                        Password Required!
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn form-group">
+                    <button type="submit" [disabled]="!f.valid" class="login100-form-btn">
+                        Login
+                    </button>
+                </div>
+            </form>
+
+            <ul class="login-more p-t-50">
+                <li class="m-b-8">
+                    <span class="txt1">
+                            Forgot
+                        </span>
+
+                    <a href="#" class="txt2">
+                            Username / Password?
+                        </a>
+                </li>
+
+                <li>
+                    <span class="txt1">
+                            Don’t have an account?
+                        </span>
+
+                    <a href="#" class="txt2">
+                            Sign up
+                        </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>

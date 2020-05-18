@@ -1,0 +1,138 @@
+<!--  -->
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-light my-4">Add New Product</h3>
+                    </div>
+                    <div *ngIf="book && progressBar" class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: progress + '%' }">
+                            {{ progress }}%
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="angForm" (submit)="onSubmit(angForm.value)" novalidate>
+
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputFirstName">Product Sku</label>
+                                <input class="form-control py-4" id="inputProductSku" formControlName="sku" [(ngModel)]="skuValue" type="text" placeholder="Enter product Sku" (input)="checkSku()" />
+                            </div>
+                            <div *ngIf="angForm.controls['sku'].invalid && (angForm.controls['sku'].dirty || angForm.controls['sku'].touched) " class="alert alert-danger">
+                                <div *ngIf="angForm.controls['sku'].errors.required">
+                                    Product Sku is required.
+                                </div>
+                            </div>
+                            <div *ngIf="skuError" class="alert alert-danger">
+                                <div>
+                                    Sku duplicate values.
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputFirstName">Product Name</label>
+                                <input class="form-control py-4" id="inputProductName" formControlName="name" type="text" placeholder="Enter product name" />
+                            </div>
+                            <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+                                <div *ngIf="angForm.controls['name'].errors.required">
+                                    Product name is required.
+                                </div>
+                            </div>
+
+
+                            <div class="form-group"><label class="small mb-1" for="file">Product image</label>
+                                <input class="form-control py-4" formControlName="file" id="file" type="file" (change)="selectFile($event)" aria-describedby="file" placeholder="Enter product image" />
+                            </div>
+                            <div *ngIf="angForm.controls['file'].invalid && (angForm.controls['file'].dirty || angForm.controls['file'].touched)" class="alert alert-danger">
+                                <div *ngIf="angForm.controls['file'].errors.required">
+                                    Product image is required.
+                                </div>
+
+                            </div>
+                            <div *ngIf="fileSize" class="alert alert-danger">
+                                <div>
+                                    Image size not more than 500kb
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="small mb-1" for="description">Description</label>
+                                <input class="form-control py-4" formControlName="description" id="description" type="text" placeholder="Enter product description" />
+                            </div>
+                            <div *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)" class="alert alert-danger">
+                                <div *ngIf="angForm.controls['description'].errors.required">
+                                    Product description is required.
+                                </div>
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="unitPrice">Price</label>
+                                        <input class="form-control py-4" formControlName="unitPrice" id="inputPrice" type="text" placeholder="Enter price" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="unitsInStock">Stock</label>
+                                        <input class="form-control py-4" formControlName="unitsInStock" id="unitsInStock" type="text" placeholder="Enter Stock" /></div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div *ngIf="angForm.controls['unitPrice'].invalid && (angForm.controls['unitPrice'].dirty || angForm.controls['unitPrice'].touched)" class="alert alert-danger">
+                                        <div *ngIf="angForm.controls['unitPrice'].errors.required">
+                                            Price is required.
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div *ngIf="angForm.controls['unitsInStock'].invalid &&  (angForm.controls['unitsInStock'].dirty || angForm.controls['unitsInStock'].touched)" class="alert alert-danger">
+                                        <div *ngIf="angForm.controls['unitsInStock'].errors.required">
+                                            stock is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div *ngIf="(angForm.controls['price'].invalid || angForm.controls['stock'].invalid)
+                            && (angForm.controls['price'].dirty || angForm.controls['stock'].dirty
+                            || angForm.controls['price'].touched|| angForm.controls['stock'].touched)" class="alert alert-danger">
+                                <div *ngIf="angForm.controls['price'].errors.required || angForm.controls['stock'].errors.required">
+                                    Product price & stock are required.
+                                </div>
+                            </div> -->
+
+                            <div class="form-group">
+                                <label class="small mb-1" for="category">Select product catagory</label>
+                                <div class="col-xs-12 col-xs-12">
+                                    <select class="browser-default custom-select" formControlName="category">
+                                    <!-- <option  value="0"><b>Book Category</b></option> -->
+                                    <option class="dropdown-item" *ngFor="let category of allCategory" value="{{category.id}}" >{{category.categoryName}}</option>
+                                  </select>
+                                </div>
+                            </div>
+                            <div *ngIf="angForm.controls['category'].invalid && (angForm.controls['category'].dirty || angForm.controls['category'].touched)" class="alert alert-danger">
+                                <div *ngIf="angForm.controls['category'].errors.required">
+                                    Category is required.
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-4 mb-0">
+                                <button type="submit" [disabled]="angForm.pristine || angForm.invalid || skuError || fileSize" class="btn btn-primary btn-block">
+                                    Add new product</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <div class="small"><a href="register.html">Have an account? Go to login</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

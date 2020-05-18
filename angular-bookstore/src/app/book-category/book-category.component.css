@@ -1,0 +1,14 @@
+a:hover {
+    text-decoration: none;
+}
+
+.bg-primary {
+    background-color: #0f2d4d !important;
+}
+
+a.bg-primary:focus,
+a.bg-primary:hover,
+button.bg-primary:focus,
+button.bg-primary:hover {
+    background-color: #0f2d4d !important;
+}

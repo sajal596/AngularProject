@@ -1,0 +1,73 @@
+<!-- <table *ngIf="imageList">
+    <tr *ngFor="let i of rowIndexArray">
+        <td>
+            <div class="imagebox">
+                <img [src]="imageList[3*i].imageUrl" class="img-fluid">
+                <span class="imagebox-desc">{{imageList[3*i].caption}}</span>
+            </div>
+        </td>
+        <td>
+            <div class="imagebox">
+                <img [src]="imageList[3*i+1].imageUrl" class="img-fluid">
+                <span class="imagebox-desc">{{imageList[3*i+1].caption}}</span>
+            </div>
+        </td>
+        <td>
+            <div class="imagebox">
+                <img [src]="imageList[3*i+2].imageUrl" class="img-fluid">
+                <span class="imagebox-desc">{{imageList[3*i+2].caption}}</span>
+            </div>
+        </td>
+    </tr>
+</table> -->
+
+<div class="gallery" id="gallery">
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2" *ngFor="let i of imageList">
+        <img class="img-fluid" [src]="i.imageUrl" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+</div>
+
+<br>
+<hr/>
+<div class="gallery" id="gallery">
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+</div>

@@ -1,0 +1,73 @@
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-light my-4">Create Account</h3>
+                    </div>
+
+
+                    <div class="card-body">
+                        <form [formGroup]="angForm" (submit)="createUser(angForm.value)" novalidate>
+
+                            <div class="form-group">
+                                <label class="small mb-1" for="username">Enter username</label>
+                                <input class="form-control py-4" id="username" formControlName="username" type="text" placeholder="Enter Username" />
+                            </div>
+                            <div *ngIf="angForm.controls['username'].invalid && (angForm.controls['username'].dirty || angForm.controls['username'].touched) " class="alert alert-danger">
+                                <div *ngIf="angForm.controls['username'].errors.required">
+                                    Username is required.
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="small mb-1" for="email">Enter Email Address</label>
+                                <input class="form-control py-4" id="email" formControlName="email" [(ngModel)]="emailValue" (input)="checkEmail(emailValue)" type="text" placeholder="Enter email address" />
+                            </div>
+                            <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+                                <div *ngIf="angForm.controls['email'].errors.required">
+                                    User email is required.
+                                </div>
+                            </div>
+                            <div *ngIf="emailError" class="alert alert-danger">
+                                <div>
+                                    Email already exist!.
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="small mb-1" for="password">Password</label>
+                                <input class="form-control py-4" formControlName="password" id="password" type="password" placeholder="Enter password" />
+                            </div>
+                            <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
+                                <div *ngIf="angForm.controls['password'].errors.required">
+                                    Password is required.
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="small mb-1" for="mobile">Enter mobile number</label>
+                                <input class="form-control py-4" formControlName="mobile" id="mobile" type="mobile" placeholder="Enter mobile number" />
+                            </div>
+                            <div *ngIf="angForm.controls['mobile'].invalid && (angForm.controls['mobile'].dirty || angForm.controls['mobile'].touched)" class="alert alert-danger">
+                                <div *ngIf="angForm.controls['mobile'].errors.required">
+                                    Mobile number is required.
+                                </div>
+                            </div>
+                            <div class="form-group mt-4 mb-0">
+                                <button type="submit" [disabled]="angForm.pristine || angForm.invalid || emailError" class="btn btn-primary btn-block">
+                                    Create account</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <div class="small">
+                            <a [routerLink]="['/login']">Have an account? Go to login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

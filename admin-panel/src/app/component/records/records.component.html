@@ -1,0 +1,153 @@
+<!--Test-->
+
+<!-- <div class="container">
+    <h1>
+        Welcome to !!
+    </h1>
+    <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+            <label>Name:</label>
+            <input class="form-control" formControlName="name" type="text">
+        </div>
+        <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['name'].errors.required">
+                Name is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Address:</label>
+            <input class="form-control" formControlName="address" type="text">
+        </div>
+        <div *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls['address'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['address'].errors.required">
+                email is required.
+            </div>
+        </div>
+        <button type="submit" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-success">
+              Save
+          </button>
+    </form>
+    <br />
+    <p>Form value: {{ angForm.value | json }}</p>
+    <p>Form status: {{ angForm.status | json }}</p>
+</div> -->
+
+<!--End-->
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Tables</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a [routerLink]="['/']" routerLinkActive="router-link-active">Dashboard</a></li>
+            <li class="breadcrumb-item active">Tables</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>.</div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <fa name="table"></fa>
+                DataTable Example
+            </div>
+            <div class="card card-sm">
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <fa name="search" class="h4 text-body"></fa>
+                    </div>
+                    <!--end of col-->&nbsp;&nbsp;
+                    <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords" #myInput [(ngModel)]="productName" (input)="search()">
+                    </div>
+                    <!--end of col-->&nbsp;
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-success" type="submit">Search</button>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <!-- <div class="col-auto">
+                        <div class="btn-group">
+                            <button class="btn btn-secondary btn-lg" type="button">
+                                      Select category
+                                    </button>
+                            <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#"  *ngFor="let category of allCategory">{{category.categoryName}}</a>
+                                <li class="dropdown-item" *ngFor="let category of allCategory;index as i" value="{{category.id}}" (click)='selectChangeHandler(category.id)'>{{category.categoryName}}</li>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-auto">
+                        <select class="browser-default custom-select" [(ngModel)]="selectedCategory" (click)='getSelectCategory()'>
+                        <option selected value="0" ><b>Book Category</b></option>
+                        <option class="dropdown-item" *ngFor="let category of allCategory"  value="{{category.id}}" >{{category.categoryName}}</option>
+                      </select>
+                    </div>
+                    <!-- <p>{{selectedQuantity}}</p> -->
+                </div>
+            </div>
+
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr class="tb_header">
+                                <th>Image</th>
+                                <th>Sku</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Created</th>
+                                <th>Update</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Image</th>
+                                <th>Sku</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Created</th>
+                                <th>Update</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr *ngFor=" let book of allBooks">
+                                <td style="width: 50px;height: 50px;">
+                                    <img src="http://localhost:8080{{book.imageUrl}}" style="width: 50px;height: 70px;">
+                                </td>
+                                <td>{{book.sku}}</td>
+                                <td>{{book.name}}</td>
+                                <td>{{book.description}}</td>
+                                <td>{{book.unitPrice}}</td>
+                                <td>{{book.unitsInStock}}</td>
+                                <td>{{book.createdOn |date}}</td>
+                                <td>{{book.updatedOn|date}}</td>
+                                <td style="width: 120px;"><button type="button" class="btn btn-primary" value="{{book.id}}"> <fa name="edit" ></fa></button> -
+                                    <button type="button" class="btn btn-danger" value="{{book.id}}"> <fa name="trash" ></fa></button>
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+                    <div class="float-right ">
+                        <ul class="nav nav-pills">
+                            <li class="page-item" *ngFor="let p of totalPage;let i=index " [ngClass]="{'active':i==page} ">
+                                <a class="page-link" (click)="setPage(i,$event)" style="cursor: pointer;">{{i}}</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

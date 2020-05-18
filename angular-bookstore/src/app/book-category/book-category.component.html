@@ -1,0 +1,3 @@
+<div class="list-group">
+    <a [routerLink]="['/category/'+category.id]" *ngFor="let category of categories" routerLinkActive="bg-primary text-white font-weight-bold" class="list-group-item d-flex justify-content-between align-items-center">{{category.categoryName}} <span class="badge badge-primary badge-pill">{{category.badge}}</span></a>
+</div>
